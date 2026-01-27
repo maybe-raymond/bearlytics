@@ -8,5 +8,11 @@ groupmod -o -g "$CONTAINER_GID" $USER
 usermod -o -u "$CONTAINER_UID" $USER
 chown -R $USER:$USER /app
 
-exec su $USER -c "$@"
+# Execute the command as the bear user
+# If a single script argument, execute it directly; otherwise join arguments
+if [ $# -eq 1 ]; then
+    exec su $USER -c "$1"
+else
+    exec su $USER -c "$*"
+fi
 

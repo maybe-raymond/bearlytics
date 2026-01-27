@@ -6,7 +6,8 @@ services:
     volumes:
     - ./analytics:/app/data
     environment:
-      CSRF_TRUSTED_ORIGINS: ${CSRF_TRUSTED_ORIGINS:-http://localhost}
+      CSRF_TRUSTED_ORIGINS: ${CSRF_TRUSTED_ORIGINS:-https://www.ikka.cloud,http://localhost}
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS:-www.ikka.cloud,localhost}
       DB_PATH: ${DB_PATH:-/app/data/analytics.db}
       DEBUG: False
       SALT_SECRET: ${SALT_SECRET:?err}
