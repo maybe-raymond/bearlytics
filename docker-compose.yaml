@@ -10,7 +10,7 @@ services:
       # - The analytics server domain (bearlytics.ikka.cloud)
       # - Any domains making requests (e.g., https://www.ikka.cloud)
       # - Local development (http://localhost:8080)
-      CSRF_TRUSTED_ORIGINS: ${CSRF_TRUSTED_ORIGINS:-https://bearlytics.ikka.cloud,https://www.ikka.cloud,http://localhost,http://localhost:8080}
+      CSRF_TRUSTED_ORIGINS: "https://bearlytics.ikka.cloud,https://www.ikka.cloud,http://localhost,http://localhost:8080"
       # ALLOWED_HOSTS: Include the analytics server domain where Django is running
       ALLOWED_HOSTS: ${ALLOWED_HOSTS:-bearlytics.ikka.cloud,www.ikka.cloud,localhost}
       DB_PATH: ${DB_PATH:-/app/data/analytics.db}

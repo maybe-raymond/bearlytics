@@ -10,7 +10,18 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DEBUG') == 'True'
 
 ALLOWED_HOSTS = [host.strip() for host in os.getenv('ALLOWED_HOSTS', '*').split(',') if host.strip()]
-CSRF_TRUSTED_ORIGINS = [origin.strip() for origin in os.getenv('CSRF_TRUSTED_ORIGINS', '').split(',') if origin.strip()]
+# CSRF_TRUSTED_ORIGINS: Parse from env, with fallback defaults
+csrf_origins_env = os.getenv('CSRF_TRUSTED_ORIGINS', '')
+if csrf_origins_env:
+    CSRF_TRUSTED_ORIGINS = [origin.strip() for origin in csrf_origins_env.split(',') if origin.strip()]
+else:
+    # Fallback defaults if not set in environment
+    CSRF_TRUSTED_ORIGINS = [
+        'https://bearlytics.ikka.cloud',
+        'https://www.ikka.cloud',
+        'http://localhost',
+        'http://localhost:8080',
+    ]
 
 # CSRF settings
 CSRF_COOKIE_SECURE = os.getenv('CSRF_COOKIE_SECURE', 'False') == 'True'
