@@ -17,6 +17,6 @@ RUN pip install --no-cache-dir -r requirements.txt && \
 
 EXPOSE 8000
 HEALTHCHECK --interval=60s --timeout=30s --start-period=15s --retries=3 \
-  CMD curl -f http://localhost:8000/script.js || exit 1
+  CMD curl -f http://localhost:8080/script.js || exit 1
 ENTRYPOINT ["/app/docker/entrypoint.sh"]
 CMD ["/app/docker/run.sh"]
