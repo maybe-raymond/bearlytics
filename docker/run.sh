@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+echo "starting to run script"
+
 # Run migrations first
 python manage.py migrate
 
