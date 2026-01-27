@@ -2,7 +2,7 @@ services:
   bearlytics:
     image: ghcr.io/hermanmartinus/bearlytics:latest
     ports:
-    - 8000:8000
+    - 8080:8080
     volumes:
     - ./analytics:/app/data
     environment:
