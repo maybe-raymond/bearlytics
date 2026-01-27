@@ -65,6 +65,9 @@ WSGI_APPLICATION = 'conf.wsgi.application'
 
 DB_PATH = os.getenv('DB_PATH', '/app/db/db.sqlite3')
 
+# Ensure database directory exists
+os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
+
 with sqlite3.connect(DB_PATH) as conn:
     conn.execute('PRAGMA journal_mode=WAL;')
     conn.execute('PRAGMA synchronous=NORMAL;')

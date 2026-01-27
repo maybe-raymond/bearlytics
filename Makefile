@@ -1,7 +1,7 @@
 PHONY: dev deploy collectstatic
 
 dev:
-	echo "http://localhost:8000"
+	echo "http://localhost:8080"
 	python manage.py runserver
 
 deploy:
