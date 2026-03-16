@@ -1,6 +1,5 @@
 import os
 from pathlib import Path
-import sqlite3
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -83,22 +82,6 @@ WSGI_APPLICATION = "conf.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
-DB_PATH = os.getenv("DB_PATH", "/app/db/db.sqlite3")
-
-# Ensure database directory exists
-os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
-
-with sqlite3.connect(DB_PATH) as conn:
-    conn.execute("PRAGMA journal_mode=WAL;")
-    conn.execute("PRAGMA synchronous=NORMAL;")
-    conn.execute("PRAGMA busy_timeout=5000;")
-    conn.execute("PRAGMA cache_size=-20000;")
-    conn.execute("PRAGMA foreign_keys=ON;")
-    conn.execute("PRAGMA auto_vacuum=INCREMENTAL;")
-    conn.execute("PRAGMA temp_store=MEMORY;")
-    conn.execute("PRAGMA mmap_size=2147483648;")
-    conn.execute("PRAGMA page_size=8192;")
 
 DATABASES = {
     "default": {
