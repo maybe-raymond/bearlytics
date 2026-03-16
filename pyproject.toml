@@ -10,7 +10,6 @@ dependencies = [
   "geoip2==5.0.1",
   "gunicorn==21.2.0",
   "psycopg2>=2.9.11",
-  "psycopg2-binary>=2.9.10",
   "python-dotenv==1.0.1",
   "sqlparse==0.5.1",
   "user-agents==2.2.0",
