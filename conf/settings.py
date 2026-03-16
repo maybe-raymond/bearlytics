@@ -86,10 +86,10 @@ WSGI_APPLICATION = "conf.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "ikka_DB",
-        "USER": "ikka",
-        "PASSWORD": "dogbatman",
-        "HOST": "185.77.96.174",
+        "NAME": os.getenv("DB_NAME"),
+        "USER": os.getenv("DB_USER"),
+        "PASSWORD": os.getenv("DB_PASSWORD"),
+        "HOST": os.getenv("DB_HOST"),
         "PORT": "5433",  # Default PostgreSQL port
     }
 }
