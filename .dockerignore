@@ -1,5 +1,6 @@
 .dockerignore
 .env
+.venv
 .gitattributes
 .gitignore
 analytics

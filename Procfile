@@ -1,2 +1,2 @@
-release: python manage.py migrate
-web: gunicorn conf.wsgi --log-file -
+release: uv run manage.py migrate
+web: uv run gunicorn conf.wsgi --log-file -

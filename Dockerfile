@@ -12,14 +12,19 @@ WORKDIR /app
 
 # Install uv
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
-RUN chmod +x /usr/local/bin/uv && \
-    uv --version
 
+# Copy dependency files first for layer caching
+COPY --chown=bear:bear pyproject.toml uv.lock ./
+
+# Install dependencies from lock file
+RUN uv sync --frozen --no-dev --no-cache
+
+# Copy the rest of the application
 COPY --chown=bear:bear . .
 
-RUN uv pip install --system --no-cache -r requirements.txt && \
-    python -c "import django; print(f'Django {django.__version__} installed')" && \
-    chmod +x docker/entrypoint.sh docker/run.sh
+RUN chmod +x docker/entrypoint.sh docker/run.sh
+
+ENV PATH="/app/.venv/bin:$PATH"
 
 EXPOSE 8080
 HEALTHCHECK --interval=60s --timeout=30s --start-period=15s --retries=3 \
