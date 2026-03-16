@@ -196,7 +196,7 @@ requires-dist = [
     { name = "django", specifier = "==5.1.2" },
     { name = "geoip2", specifier = "==5.0.1" },
     { name = "gunicorn", specifier = "==21.2.0" },
-    { name = "psycopg2-binary", specifier = "==2.9.10" },
+    { name = "psycopg2-binary", specifier = ">=2.9.10" },
     { name = "python-dotenv", specifier = "==1.0.1" },
     { name = "sqlparse", specifier = "==0.5.1" },
     { name = "user-agents", specifier = "==2.2.0" },
