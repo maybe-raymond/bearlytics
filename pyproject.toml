@@ -1,0 +1,17 @@
+[project]
+name = "bearlytics"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "asgiref==3.8.1",
+    "django==5.1.2",
+    "geoip2==5.0.1",
+    "gunicorn==21.2.0",
+    "psycopg2-binary==2.9.10",
+    "python-dotenv==1.0.1",
+    "sqlparse==0.5.1",
+    "user-agents==2.2.0",
+    "whitenoise==6.8.2",
+]

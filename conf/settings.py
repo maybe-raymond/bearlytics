@@ -90,7 +90,7 @@ DATABASES = {
         "USER": "ikka",
         "PASSWORD": "dogbatman",
         "HOST": "185.77.96.174",
-        "PORT": "5432",  # Default PostgreSQL port
+        "PORT": "5433",  # Default PostgreSQL port
     }
 }
 
