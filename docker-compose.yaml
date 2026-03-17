@@ -2,9 +2,9 @@ services:
   bearlytics:
     image: ghcr.io/hermanmartinus/bearlytics:latest
     ports:
-    - 8080:8080
+      - 8080:8080
     volumes:
-    - ./analytics:/app/data
+      - ./analytics:/app/data
     environment:
       # CSRF_TRUSTED_ORIGINS: Include ALL domains that will access the admin interface
       # - The analytics server domain (bearlytics.ikka.cloud)
@@ -20,4 +20,3 @@ services:
       UID: 1000
       GID: 1000
     restart: unless-stopped
-
